@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user/user.model';
 import { Observable, throwError } from 'rxjs';
+import { Libro } from '../libro/librorr';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -26,6 +27,14 @@ import { retry, catchError } from 'rxjs/operators';
           catchError(this.handleError)
         )
         
+      }
+
+      getLibros(): Observable<Libro> {
+        return this.http.get<Libro>(this.apiURL + '/listar/libro')
+        .pipe(
+          retry(0),
+          catchError(this.handleError)
+        )
       }
 
       handleError(error) {

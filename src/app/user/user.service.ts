@@ -14,12 +14,12 @@ export class UserService {
   setUserLoggedIn(user:User) {
     this.isUserLoggedIn = true;
     this.usserLogged = user;
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('usuario', JSON.stringify(user));
   
   }
 
   getUserLoggedIn() {
-  	return JSON.parse(localStorage.getItem('currentUser'));
+  	return JSON.parse(localStorage.getItem('usuario'));
   }
 
 }

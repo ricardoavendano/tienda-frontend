@@ -28,7 +28,7 @@ import { User } from '../user/user.model';
 
       this.loginservice.authenticate(this.loginDetails).subscribe((data: {}) => {
         this.loginservice.sessionStorageValue(this.loginDetails.idUsuario);
-        this.router.navigate(['']);
+        this.router.navigate(['libro-list']);
         this.invalidLogin = false;
       })
       
