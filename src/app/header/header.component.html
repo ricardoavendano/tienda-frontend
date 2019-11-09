@@ -3,7 +3,8 @@
   <ul class="navbar-nav">
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/libro-list" class="nav-link">Ver libros</a></li>
-    <!--<li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li>-->
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/carrito-list" class="nav-link">Carrito de compras</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/carrito-hist-list" class="nav-link">Compras realizadas</a></li>
     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
 
   </ul>
