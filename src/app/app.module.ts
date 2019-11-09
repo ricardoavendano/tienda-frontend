@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LibrosListComponent } from "./libro/libro.component";
+import { CarritoComponent } from './carrito/carrito.component';
+import { HistorialComponent } from './historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LibrosListComponent } from "./libro/libro.component";
     FooterComponent,
     LoginComponent,
     LogoutComponent,
-    LibrosListComponent
+    LibrosListComponent,
+    CarritoComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

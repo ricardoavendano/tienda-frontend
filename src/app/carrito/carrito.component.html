@@ -1,0 +1,46 @@
+<div class="container custom-container-2">
+
+    <div class="no-data text-center" *ngIf="CarritoList.length == 0">
+        <p>No hay items en el carrito</p>
+        <button class="btn btn-outline-primary" routerLink="/libro-list">Ver lista de Libros</button>
+    </div>
+
+    <div *ngIf="CarritoList.length !== 0">
+      <h3 class="mb-3 text-center">Articulos agregados al carrito</h3>
+      
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Imagen</th>
+              <th scope="col">Libros</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Valor unitario</th>   
+              <th scope="col">Valor total</th>   
+              <th scope="col">Eliminar</th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let carrito of CarritoList.compraList">
+                <td><img class="img-responsive smaller" src="https://raw.githubusercontent.com/ricardoavendano/tienda-frontend/master/src/app/portada/{{carrito.imagen}}"/></td>
+              <td>{{carrito.titulo}}</td>
+              <td>{{carrito.cantidad}}</td>
+              <td>{{carrito.precio}}</td>
+              <td>{{carrito.precioTotal}}</td>                  
+              <td>
+                  <span class="btn btn-danger btn-lg btn-block" (click)="cancelarItemCompra(carrito.idCompra)">Eliminar</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-12">
+          <td>Valor total de la compra: ${{CarritoList.valorCompra}}</td><tr></tr> 
+          <td>Cantidad articulos comprados: {{CarritoList.cantidadComprada}}</td> 
+          <span class="btn btn-success btn-lg btn-block" (click)="finalizarCompra()">Terminar compra</span>
+          <span class="btn btn-warning btn-lg btn-block" (click)="cancelarCompra()">Cancelar compra</span>
+      </div>
+  
+    </div>
+  
+  </div>

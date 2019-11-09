@@ -5,4 +5,5 @@ export class Libro {
     precio: number;
     precioTotal: number;
     imagen: string;
+    //cantidadComprada: number;
  }

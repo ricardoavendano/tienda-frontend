@@ -1,15 +1,7 @@
 <div class="container custom-container-2">
-
-    <!-- Show it when there is no employee 
-    <div class="no-data text-center" *ngIf="Libros.length == 0">
-      <p>There is no employee added yet!</p>
-      <button class="btn btn-outline-primary" routerLink="/create-employee">Add Empoyee</button>
-    </div>-->
-  
-    <!-- Employees list table, it hides when there is no employee -->
     <div *ngIf="Libros.length !== 0">
       <h3 class="mb-3 text-center">Catalogo de libros</h3>
-  
+      
       <div class="col-md-12">
         <table class="table table-bordered">
           <thead>
@@ -18,18 +10,22 @@
               <th scope="col">Titulo</th>
               <th scope="col">Cantidad disponible</th>
               <th scope="col">Precio</th>
+              <th scope="col">Cantidad a pedir</th>
               <th scope="col">Agregar al carrito</th>   
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let libror of Libros">
-              <td>{{libror.imagen}}</td>
-              <td>{{libror.titulo}}</td>
-              <td>{{libror.cantidad}}</td>
-              <td>{{libror.precio}}</td>
+            <tr *ngFor="let libro of Libros">
+              <td><img class="img-responsive smaller" src="https://raw.githubusercontent.com/ricardoavendano/tienda-frontend/master/src/app/portada/{{libro.imagen}}"/></td>
+              <td>{{libro.titulo}}</td>
+              <td *ngIf="libro.cantidad == 0" >Agotado</td>
+              <td *ngIf="libro.cantidad > 0" >{{libro.cantidad}}</td>
+              <td>{{libro.precio}}</td>
               <td>
-                <!--<span class="edit" routerLink="/employee-edit/{{employee.id}}">Edit</span>
-                <span class="delete" (click)="deleteEmployee(employee.id)">Delete</span>-->
+                <input *ngIf="libro.cantidad > 0" type="number" [(ngModel)]="libro.cantidadComprada" class="form-control" placeholder="cantidad" required>
+              </td>
+              <td>
+                    <span class="btn btn-success btn-lg btn-block" (click)="agregarCompra(libro.idLibro, libro.precio, libro.cantidadComprada)">Agregar</span>
               </td>
             </tr>
           </tbody>

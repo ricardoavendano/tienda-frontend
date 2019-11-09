@@ -1,0 +1,39 @@
+<div class="container custom-container-2">
+
+        <div class="no-data text-center" *ngIf="CarritoListHist.length == 0">
+                <p>No tiene compras registradas</p>
+                <button class="btn btn-outline-primary" routerLink="/libro-list">Ver lista de Libros</button>
+        </div>
+        <div *ngIf="CarritoListHist.length !== 0">
+          <h3 class="mb-3 text-center">Historial articulos comprados</h3>
+          
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Libros</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Valor unitario</th>   
+                  <th scope="col">Valor total</th>   
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let carrito of CarritoListHist.compraList">
+                    <td><img class="img-responsive smaller" src="https://raw.githubusercontent.com/ricardoavendano/tienda-frontend/master/src/app/portada/{{carrito.imagen}}"/></td>
+                  <td>{{carrito.titulo}}</td>
+                  <td>{{carrito.cantidad}}</td>
+                  <td>{{carrito.precio}}</td>
+                  <td>{{carrito.precioTotal}}</td>                  
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-12">
+                <td>Valor total comprado: ${{CarritoListHist.valorCompra}}</td><tr></tr> 
+                <td>Cantidad articulos comprados: {{CarritoListHist.cantidadComprada}}</td> 
+            </div>
+        </div>
+      
+      </div>
