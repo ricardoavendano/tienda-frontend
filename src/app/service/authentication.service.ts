@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user/user.model';
 import { Observable, throwError } from 'rxjs';
-import { Libro } from '../libro/librorr';
+import { Libro } from '../libro/libro';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
